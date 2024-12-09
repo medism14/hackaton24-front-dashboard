@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Palette de couleurs principales */
+  --primary-color: #171717;
+  --secondary-color: #2ECC71;
+  --tertiary-color: #F39C12;
+
+  /* Accents pour secondary */
+  --secondary-accent-light: #4cd787;
+  --secondary-accent-dark: #27ae60;
+  
+  /* Accents pour tertiary */
+  --tertiary-accent-light: #f5b041;
+  --tertiary-accent-dark: #d68910;
+
+  background: linear-gradient(to left, #1e1e1e, #171717);
+}
