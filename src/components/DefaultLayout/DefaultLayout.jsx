@@ -18,10 +18,10 @@ const DefaultLayout = ({ children }) => {
       )}
       <div
         className={`min-h-screen flex flex-col ${
-          isAuthenticated ? "pt-[125px]" : ""
+          isAuthenticated ? "pt-[135px]" : ""
         } pb-8`}
       >
-        <main className="flex-grow mx-auto w-full flex flex-col max-w-7xl">
+        <main className="flex-grow mx-auto w-full flex flex-col max-w-[80%]">
           {children}
         </main>
       </div>

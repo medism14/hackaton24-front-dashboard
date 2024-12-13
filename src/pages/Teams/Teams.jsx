@@ -9,6 +9,8 @@ import {
   faEnvelope,
   faIdCard,
   faBriefcase,
+  faUserPlus,
+  faSearch,
 } from "@fortawesome/free-solid-svg-icons";
 import usersData from "../../data/users.json";
 import { useDispatch, useSelector } from "react-redux";
@@ -21,6 +23,9 @@ const Teams = () => {
   const [teamMembers, setTeamMembers] = useState([]);
   const [users, setUsers] = useState([]);
   const [activeSection, setActiveSection] = useState("myTeam");
+  const [showAddMemberModal, setShowAddMemberModal] = useState(false);
+  const [selectedTeamId, setSelectedTeamId] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
   const dispatch = useDispatch();
   const isLoading = useSelector((state) => state.loading.isLoading);
 
@@ -75,6 +80,30 @@ const Teams = () => {
     return users.find((user) => user.id === managerId);
   };
 
+  const getAvailableUsers = (teamId) => {
+    const teamMemberIds = teamMembers
+      .filter((tm) => tm.team_id === teamId)
+      .map((tm) => tm.user_id);
+    return users.filter((user) => !teamMemberIds.includes(user.id));
+  };
+
+  const getFilteredAvailableUsers = (teamId) => {
+    const availableUsers = getAvailableUsers(teamId);
+    if (!searchTerm) return availableUsers;
+    
+    return availableUsers.filter((user) => {
+      const fullName = `${user.first_name} ${user.last_name}`.toLowerCase();
+      const searchLower = searchTerm.toLowerCase();
+      const caMatch = user.ca_number ? user.ca_number.toLowerCase().includes(searchLower) : false;
+      return fullName.includes(searchLower) || caMatch;
+    });
+  };
+
+  const handleAddMember = (teamId, userId) => {
+    setTeamMembers([...teamMembers, { team_id: teamId, user_id: userId }]);
+    setShowAddMemberModal(false);
+  };
+
   useEffect(() => {
     const controller = new AbortController();
 
@@ -85,7 +114,6 @@ const Teams = () => {
         await new Promise((resolve, reject) => {
           const timer = setTimeout(resolve, 1000);
           
-          // Si le contrôleur est aborté, on annule le timer
           controller.signal.addEventListener('abort', () => {
             clearTimeout(timer);
             reject('Loading cancelled');
@@ -104,10 +132,9 @@ const Teams = () => {
 
     fetchData();
 
-    // Cleanup function
     return () => {
-      controller.abort(); // Annule la promesse en cours
-      dispatch(stopPageLoading()); // Reset le loading state
+      controller.abort();
+      dispatch(stopPageLoading());
     };
   }, [dispatch]);
 
@@ -376,6 +403,16 @@ const Teams = () => {
                     </p>
                   </div>
                   <div className="flex items-center gap-4">
+                    <button
+                      onClick={() => {
+                        setSelectedTeamId(team.id);
+                        setShowAddMemberModal(true);
+                      }}
+                      className="px-4 py-2 bg-[#2ECC71] text-white rounded-lg hover:bg-[#27ae60] transition-colors flex items-center gap-2"
+                    >
+                      <FontAwesomeIcon icon={faUserPlus} />
+                      Ajouter un membre
+                    </button>
                     <span className="px-6 py-2 bg-[#2ECC71]/10 text-[#2ECC71] rounded-full font-semibold border border-[#2ECC71]/20 shadow-inner">
                       Niveau {team.level}
                     </span>
@@ -413,6 +450,70 @@ const Teams = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      )}
+
+      {showAddMemberModal && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) {
+              setShowAddMemberModal(false);
+            }
+          }}
+        >
+          <div className="bg-[#272727] rounded-xl p-8 w-[600px] max-h-[80vh] overflow-y-auto">
+            <div className="flex justify-between items-center mb-6">
+              <h3 className="text-xl font-bold text-[#2ECC71]">
+                Ajouter un nouveau membre
+              </h3>
+              <button
+                onClick={() => setShowAddMemberModal(false)}
+                className="text-gray-400 hover:text-white"
+              >
+                ✕
+              </button>
+            </div>
+            <div className="mb-4">
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="Rechercher par nom ou numéro CA..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full pl-[40px] py-2 bg-[#1f1f1f] text-white rounded-lg pl-10 focus:outline-none focus:ring-2 focus:ring-[#2ECC71]"
+                />
+                <FontAwesomeIcon
+                  icon={faSearch}
+                  className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                />
+              </div>
+            </div>
+            <div className="space-y-4">
+              {getFilteredAvailableUsers(selectedTeamId).map((user) => (
+                <div
+                  key={user.id}
+                  className="flex items-center justify-between p-4 bg-[#1f1f1f] rounded-lg hover:bg-[#242424] transition-all duration-300"
+                >
+                  <div>
+                    <h4 className="text-white font-medium">
+                      {user.first_name} {user.last_name}
+                    </h4>
+                    <p className="text-sm text-[#2ECC71]">{user.grade}</p>
+                    {user.ca_number && (
+                      <p className="text-xs text-gray-400">CA: {user.ca_number}</p>
+                    )}
+                  </div>
+                  <button
+                    onClick={() => handleAddMember(selectedTeamId, user.id)}
+                    className="px-4 py-2 bg-[#2ECC71] text-white rounded-lg hover:bg-[#27ae60] transition-colors"
+                  >
+                    Ajouter
+                  </button>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       )}
