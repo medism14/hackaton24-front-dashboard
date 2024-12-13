@@ -1,0 +1,64 @@
+{
+  "commissions": [
+    {
+      "id": 1,
+      "user_id": 3,
+      "team_id": 1,
+      "amount": 15000
+    },
+    {
+      "id": 2,
+      "user_id": 3,
+      "team_id": 2, 
+      "amount": 8000
+    },
+    {
+      "id": 3,
+      "user_id": 3,
+      "team_id": 5,
+      "amount": 25000
+    },
+    {
+      "id": 4,
+      "user_id": 3,
+      "team_id": 1,
+      "amount": 12000
+    },
+    {
+      "id": 5,
+      "user_id": 3,
+      "team_id": 2,
+      "amount": 5000
+    },
+    {
+      "id": 6,
+      "user_id": 3,
+      "team_id": 1,
+      "amount": 18000
+    },
+    {
+      "id": 7,
+      "user_id": 3,
+      "team_id": 2,
+      "amount": 9500
+    },
+    {
+      "id": 8,
+      "user_id": 3,
+      "team_id": 5,
+      "amount": 30000
+    },
+    {
+      "id": 9,
+      "user_id": 3,
+      "team_id": 1,
+      "amount": 13500
+    },
+    {
+      "id": 10,
+      "user_id": 3,
+      "team_id": 2,
+      "amount": 6000
+    }
+  ]
+}

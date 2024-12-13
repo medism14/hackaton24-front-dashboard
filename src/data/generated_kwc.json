@@ -1,0 +1,58 @@
+{
+  "generated_kwc": [
+    {
+      "id": 1,
+      "user_id": 1,
+      "generated_due": 150000,
+      "year": 2024
+    },
+    {
+      "id": 2, 
+      "user_id": 1,
+      "generated_due": 125000,
+      "year": 2023
+    },
+    {
+      "id": 3,
+      "user_id": 2,
+      "generated_due": 75000,
+      "year": 2024
+    },
+    {
+      "id": 4,
+      "user_id": 2,
+      "generated_due": 50000,
+      "year": 2023
+    },
+    {
+      "id": 5,
+      "user_id": 3,
+      "generated_due": 250000,
+      "year": 2024
+    },
+    {
+      "id": 6,
+      "user_id": 3,
+      "generated_due": 200000,
+      "year": 2023
+    },
+    {
+      "id": 7,
+      "user_id": 4,
+      "generated_due": 175000,
+      "year": 2024
+    },
+    {
+      "id": 8,
+      "user_id": 4,
+      "generated_due": 150000,
+      "year": 2023
+    },
+    {
+      "id": 9,
+      "user_id": 5,
+      "generated_due": 50000,
+      "year": 2024
+    }
+  ]
+}

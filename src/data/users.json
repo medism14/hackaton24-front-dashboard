@@ -1,0 +1,169 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "first_name": "Jean",
+      "last_name": "Dupont",
+      "email": "medismael14@gmail.com",
+      "carte_cci": "CCI-2024-001",
+      "phone_number": "06 12 34 56 78",
+      "role": "Senior",
+      "hire_date": "2020-03-15",
+      "grade": "Executive Manager"
+    },
+    {
+      "id": 2,
+      "first_name": "Marie", 
+      "last_name": "Laurent",
+      "email": "marie.laurent@voltaica.fr",
+      "carte_cci": "CCI-2024-002",
+      "phone_number": "06 23 45 67 89",
+      "role": "Junior",
+      "hire_date": "2023-06-01",
+      "grade": "Executive Manager"
+    },
+    {
+      "id": 3,
+      "first_name": "Pierre",
+      "last_name": "Martin",
+      "email": "pierre.martin@voltaica.fr",
+      "carte_cci": "CCI-2024-003", 
+      "phone_number": "06 34 56 78 90",
+      "role": "Manager",
+      "hire_date": "2019-01-10",
+      "grade": "Elite Manager"
+    },
+    {
+      "id": 4,
+      "first_name": "Sophie",
+      "last_name": "Dubois",
+      "email": "sophie.dubois@voltaica.fr",
+      "carte_cci": "CCI-2024-004",
+      "phone_number": "06 45 67 89 01", 
+      "role": "Senior",
+      "hire_date": "2021-09-20",
+      "grade": "Manager"
+    },
+    {
+      "id": 5,
+      "first_name": "Thomas",
+      "last_name": "Petit",
+      "email": "thomas.petit@voltaica.fr",
+      "carte_cci": "CCI-2024-005",
+      "phone_number": "06 56 78 90 12",
+      "role": "Junior",
+      "hire_date": "2024-01-15",
+      "grade": "Manager"
+    },
+    {
+      "id": 6,
+      "first_name": "Claire",
+      "last_name": "Moreau",
+      "email": "claire.moreau@voltaica.fr",
+      "carte_cci": "CCI-2024-006",
+      "phone_number": "06 67 89 01 23",
+      "role": "Senior",
+      "hire_date": "2022-04-01",
+      "grade": "Elite Manager"
+    },
+    {
+      "id": 7,
+      "first_name": "Lucas",
+      "last_name": "Bernard",
+      "email": "lucas.bernard@voltaica.fr",
+      "carte_cci": "CCI-2024-007",
+      "phone_number": "06 78 90 12 34",
+      "role": "Junior",
+      "hire_date": "2023-11-15",
+      "grade": "Manager"
+    },
+    {
+      "id": 8,
+      "first_name": "Emma",
+      "last_name": "Leroy",
+      "email": "emma.leroy@voltaica.fr",
+      "carte_cci": "CCI-2024-008",
+      "phone_number": "06 89 01 23 45",
+      "role": "Senior",
+      "hire_date": "2020-07-20",
+      "grade": "Executive Manager"
+    },
+    {
+      "id": 9,
+      "first_name": "Hugo",
+      "last_name": "Girard",
+      "email": "hugo.girard@voltaica.fr",
+      "carte_cci": "CCI-2024-009",
+      "phone_number": "06 90 12 34 56",
+      "role": "Manager",
+      "hire_date": "2021-03-10",
+      "grade": "Elite Manager"
+    },
+    {
+      "id": 10,
+      "first_name": "Léa",
+      "last_name": "Roux",
+      "email": "lea.roux@voltaica.fr",
+      "carte_cci": "CCI-2024-010",
+      "phone_number": "06 01 23 45 67",
+      "role": "Junior",
+      "hire_date": "2023-09-05",
+      "grade": "Manager"
+    },
+    {
+      "id": 11,
+      "first_name": "Gabriel",
+      "last_name": "Fournier",
+      "email": "gabriel.fournier@voltaica.fr",
+      "carte_cci": "CCI-2024-011",
+      "phone_number": "06 12 34 56 78",
+      "role": "Senior",
+      "hire_date": "2019-12-01",
+      "grade": "Executive Manager"
+    },
+    {
+      "id": 12,
+      "first_name": "Alice",
+      "last_name": "Vincent",
+      "email": "alice.vincent@voltaica.fr",
+      "carte_cci": "CCI-2024-012",
+      "phone_number": "06 23 45 67 89",
+      "role": "Manager",
+      "hire_date": "2022-08-15",
+      "grade": "Elite Manager"
+    },
+    {
+      "id": 13,
+      "first_name": "Louis",
+      "last_name": "Mercier",
+      "email": "louis.mercier@voltaica.fr",
+      "carte_cci": "CCI-2024-013",
+      "phone_number": "06 34 56 78 90",
+      "role": "Junior",
+      "hire_date": "2024-02-01",
+      "grade": "Manager"
+    },
+    {
+      "id": 14,
+      "first_name": "Chloé",
+      "last_name": "Durand",
+      "email": "arnauld@gmail.com",
+      "carte_cci": "CCI-2024-014",
+      "phone_number": "06 45 67 89 01",
+      "role": "Senior",
+      "hire_date": "2020-11-20",
+      "grade": "Executive Manager"
+    },
+    {
+      "id": 15,
+      "first_name": "Jules",
+      "last_name": "Lemaire",
+      "email": "jules.lemaire@voltaica.fr",
+      "carte_cci": "CCI-2024-015",
+      "phone_number": "06 56 78 90 12",
+      "role": "Manager",
+      "hire_date": "2021-06-10",
+      "grade": "Elite Manager"
+    }
+  ]
+}
