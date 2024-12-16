@@ -4,55 +4,217 @@
       "id": 1,
       "user_id": 1,
       "generated_due": 150000,
-      "year": 2024
+      "year": 2024,
+      "user": {
+        "first_name": "Jean",
+        "last_name": "Dupont",
+        "email": "jean.dupont@example.com",
+        "phone_number": "+33612345678",
+        "role": "Commercial",
+        "hire_date": "2022-01-15",
+        "grade": "Senior"
+      },
+      "team_member": {
+        "team_id": 1,
+        "team": {
+          "team_name": "Équipe Sud",
+          "level": "Expert",
+          "created_at": "2022-01-01",
+          "manager_id": 3
+        }
+      }
     },
     {
-      "id": 2, 
-      "user_id": 1,
+      "id": 2,
+      "user_id": 1, 
       "generated_due": 125000,
-      "year": 2023
+      "year": 2023,
+      "user": {
+        "first_name": "Jean",
+        "last_name": "Dupont",
+        "email": "jean.dupont@example.com",
+        "phone_number": "+33612345678",
+        "role": "Commercial",
+        "hire_date": "2022-01-15",
+        "grade": "Senior"
+      },
+      "team_member": {
+        "team_id": 1,
+        "team": {
+          "team_name": "Équipe Sud",
+          "level": "Expert", 
+          "created_at": "2022-01-01",
+          "manager_id": 3
+        }
+      }
     },
     {
       "id": 3,
       "user_id": 2,
       "generated_due": 75000,
-      "year": 2024
+      "year": 2024,
+      "user": {
+        "first_name": "Marie",
+        "last_name": "Martin",
+        "email": "marie.martin@example.com", 
+        "phone_number": "+33623456789",
+        "role": "Commercial",
+        "hire_date": "2022-03-01",
+        "grade": "Junior"
+      },
+      "team_member": {
+        "team_id": 2,
+        "team": {
+          "team_name": "Équipe Nord",
+          "level": "Standard",
+          "created_at": "2022-02-01",
+          "manager_id": 4
+        }
+      }
     },
     {
       "id": 4,
       "user_id": 2,
       "generated_due": 50000,
-      "year": 2023
+      "year": 2023,
+      "user": {
+        "first_name": "Marie",
+        "last_name": "Martin",
+        "email": "marie.martin@example.com",
+        "phone_number": "+33623456789",
+        "role": "Commercial",
+        "hire_date": "2022-03-01",
+        "grade": "Junior"
+      },
+      "team_member": {
+        "team_id": 2,
+        "team": {
+          "team_name": "Équipe Nord",
+          "level": "Standard",
+          "created_at": "2022-02-01",
+          "manager_id": 4
+        }
+      }
     },
     {
       "id": 5,
       "user_id": 3,
       "generated_due": 250000,
-      "year": 2024
+      "year": 2024,
+      "user": {
+        "first_name": "Pierre",
+        "last_name": "Bernard",
+        "email": "pierre.bernard@example.com",
+        "phone_number": "+33634567890",
+        "role": "Manager",
+        "hire_date": "2021-06-15",
+        "grade": "Expert"
+      },
+      "team_member": {
+        "team_id": 1,
+        "team": {
+          "team_name": "Équipe Sud",
+          "level": "Expert",
+          "created_at": "2022-01-01",
+          "manager_id": 3
+        }
+      }
     },
     {
       "id": 6,
       "user_id": 3,
       "generated_due": 200000,
-      "year": 2023
+      "year": 2023,
+      "user": {
+        "first_name": "Pierre",
+        "last_name": "Bernard",
+        "email": "pierre.bernard@example.com",
+        "phone_number": "+33634567890",
+        "role": "Manager",
+        "hire_date": "2021-06-15",
+        "grade": "Expert"
+      },
+      "team_member": {
+        "team_id": 1,
+        "team": {
+          "team_name": "Équipe Sud",
+          "level": "Expert",
+          "created_at": "2022-01-01",
+          "manager_id": 3
+        }
+      }
     },
     {
       "id": 7,
       "user_id": 4,
       "generated_due": 175000,
-      "year": 2024
+      "year": 2024,
+      "user": {
+        "first_name": "Sophie",
+        "last_name": "Petit",
+        "email": "sophie.petit@example.com",
+        "phone_number": "+33645678901",
+        "role": "Manager",
+        "hire_date": "2021-09-01",
+        "grade": "Expert"
+      },
+      "team_member": {
+        "team_id": 2,
+        "team": {
+          "team_name": "Équipe Nord",
+          "level": "Standard",
+          "created_at": "2022-02-01",
+          "manager_id": 4
+        }
+      }
     },
     {
       "id": 8,
       "user_id": 4,
       "generated_due": 150000,
-      "year": 2023
+      "year": 2023,
+      "user": {
+        "first_name": "Sophie",
+        "last_name": "Petit",
+        "email": "sophie.petit@example.com",
+        "phone_number": "+33645678901",
+        "role": "Manager",
+        "hire_date": "2021-09-01",
+        "grade": "Expert"
+      },
+      "team_member": {
+        "team_id": 2,
+        "team": {
+          "team_name": "Équipe Nord",
+          "level": "Standard",
+          "created_at": "2022-02-01",
+          "manager_id": 4
+        }
+      }
     },
     {
       "id": 9,
       "user_id": 5,
       "generated_due": 50000,
-      "year": 2024
+      "year": 2024,
+      "user": {
+        "first_name": "Lucas",
+        "last_name": "Robert",
+        "email": "lucas.robert@example.com",
+        "phone_number": "+33656789012",
+        "role": "Commercial",
+        "hire_date": "2023-01-15",
+        "grade": "Junior"
+      },
+      "team_member": {
+        "team_id": 1,
+        "team": {
+          "team_name": "Équipe Sud",
+          "level": "Expert",
+          "created_at": "2022-01-01",
+          "manager_id": 3
+        }
+      }
     }
   ]
 }

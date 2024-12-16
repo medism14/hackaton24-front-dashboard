@@ -1,22 +1,24 @@
 /** @format */
 
 import { Home, Login, Teams, Informations } from "./pages";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { DefaultLayout } from "./components";
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
 import PrivateRoute from './components/PrivateRoute';
 import NotFound from './commons/NotFound';
-import { useAutoLogin } from './hooks/useAutoLogin';
+import { useAuth } from './hooks/useAuth';
 
 function App() {
-  useAutoLogin();
+  const { isAuthenticated } = useAuth();
 
   return (
     <Provider store={store}>
       <DefaultLayout>
         <Routes>
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={
+            isAuthenticated ? <Navigate to="/" replace /> : <Login />
+          } />
           <Route path="/" element={
             <PrivateRoute>
               <Home />

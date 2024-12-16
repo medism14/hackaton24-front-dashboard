@@ -2,38 +2,43 @@
   "teams": [
     {
       "id": 1,
-      "manager_id": 3,
-      "team_name": "Équipe Sud-Ouest", 
-      "level": 2,
-      "created_at": "2020-01-15"
+      "team_name": "Équipe Sud-Ouest",
+      "level": "Expert",
+      "created_at": "2020-01-15",
+      "manager_id": 1,
+      "team_members": [2, 4, 5]
     },
     {
       "id": 2,
-      "manager_id": 3,
       "team_name": "Équipe Nord",
-      "level": 1,
-      "created_at": "2021-03-01"
+      "level": "Standard",
+      "created_at": "2021-03-01",
+      "manager_id": 3,
+      "team_members": [6, 7, 8]
     },
     {
       "id": 3,
-      "manager_id": 3,
       "team_name": "Équipe Grand Est",
-      "level": 2,
-      "created_at": "2020-06-15"
+      "level": "Expert",
+      "created_at": "2020-06-15",
+      "manager_id": 9,
+      "team_members": [10, 11, 12]
     },
     {
       "id": 4,
-      "manager_id": 3,
       "team_name": "Équipe PACA",
-      "level": 2,
-      "created_at": "2022-01-10"
+      "level": "Expert",
+      "created_at": "2022-01-10",
+      "manager_id": 1,
+      "team_members": [14, 15, 16, 3]
     },
     {
       "id": 5,
-      "manager_id": 3,
       "team_name": "Équipe Île-de-France",
-      "level": 3,
-      "created_at": "2019-12-01"
+      "level": "Elite",
+      "created_at": "2019-12-01",
+      "manager_id": 3,
+      "team_members": [17, 18, 19, 20]
     }
   ]
 }

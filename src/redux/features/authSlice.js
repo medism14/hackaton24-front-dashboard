@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  user: localStorage.getItem('userId') ? { id: localStorage.getItem('userId') } : null,
-  isAuthenticated: !!localStorage.getItem('userId'),
+  user: JSON.parse(localStorage.getItem('user')) || null,
+  isAuthenticated: !!localStorage.getItem('user'),
   loading: false,
   error: null
 };
@@ -19,19 +19,32 @@ const authSlice = createSlice({
       state.loading = false;
       state.isAuthenticated = true;
       state.user = action.payload.user;
-      localStorage.setItem('userId', action.payload.user.id);
+      
+      if (action.payload.rememberMe) {
+        localStorage.setItem('user', JSON.stringify(action.payload.user));
+        localStorage.setItem('token', action.payload.token);
+      } else {
+        sessionStorage.setItem('user', JSON.stringify(action.payload.user));
+        sessionStorage.setItem('token', action.payload.token);
+      }
     },
     loginFailure: (state, action) => {
       state.loading = false;
       state.error = action.payload;
       state.isAuthenticated = false;
-      localStorage.removeItem('userId');
+      localStorage.removeItem('user');
+      localStorage.removeItem('token');
+      sessionStorage.removeItem('user');
+      sessionStorage.removeItem('token');
     },
     logout: (state) => {
       state.user = null;
       state.isAuthenticated = false;
       state.error = null;
-      localStorage.removeItem('userId');
+      localStorage.removeItem('user');
+      localStorage.removeItem('token');
+      sessionStorage.removeItem('user');
+      sessionStorage.removeItem('token');
     }
   }
 });

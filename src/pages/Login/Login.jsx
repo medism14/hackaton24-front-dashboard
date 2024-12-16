@@ -1,6 +1,6 @@
 /** @format */
 
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
@@ -17,6 +17,7 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { loading, error } = useSelector((state) => state.auth);
+  const [errorMessage, setErrorMessage] = useState("");
   const {
     register,
     handleSubmit,
@@ -26,29 +27,50 @@ const Login = () => {
 
   const rememberMe = watch("rememberMe");
 
+  const expirateTimer = (setError) => {
+    setTimeout(() => {
+      setError("");
+      dispatch(loginFailure(""));
+    }, 5000);
+  };
+
   const onSubmit = async (data) => {
     try {
       dispatch(loginStart());
 
       const user = usersData.users.find((u) => u.email === data.email);
 
-      if (user && data.password === "password") {
-        if (rememberMe) {
-          localStorage.setItem('userId', user.id.toString());
+      if (user) {
+        if (data.password === "password") {
+          dispatch(
+            loginSuccess({
+              user: {
+                id: user.id,
+                firstName: user.first_name,
+                lastName: user.last_name,
+                email: user.email,
+                phoneNumber: user.phone_number,
+                role: user.role,
+                grade: user.grade,
+                hire_date: user.hire_date,
+              },
+              token: "fake-jwt-token",
+              rememberMe: rememberMe,
+            })
+          );
+
+          navigate("/");
+        } else {
+          throw new Error("Mot de passe incorrect");
         }
-        
-        dispatch(
-          loginSuccess({
-            user,
-            token: "fake-jwt-token",
-          })
-        );
-        navigate("/");
       } else {
-        throw new Error("Identifiants invalides");
+        throw new Error("Utilisateur non trouvé");
       }
     } catch (error) {
-      dispatch(loginFailure(error.message));
+      const message = error.message || "Identifiants incorrects";
+      setErrorMessage(message);
+      expirateTimer(setErrorMessage);
+      dispatch(loginFailure(message));
     }
   };
 
@@ -69,9 +91,9 @@ const Login = () => {
         </div>
 
         <div className="bg-gradient-to-br from-[#3d3d3d] via-[#1d1d1d] to-[#0f0f0f] rounded-xl p-8 shadow-2xl border border-[#2ECC71]/20 backdrop-blur-sm">
-          {error && (
+          {(error || errorMessage) && (
             <div className="mb-6 p-4 bg-red-500/10 border border-red-500/30 rounded-lg text-red-400 text-center font-medium">
-              {error}
+              {error || errorMessage}
             </div>
           )}
 
@@ -97,7 +119,9 @@ const Login = () => {
               />
             </div>
             {errors.email && (
-              <p className="mt-2 text-sm text-red-400 font-medium">{errors.email.message}</p>
+              <p className="mt-2 text-sm text-red-400 font-medium">
+                {errors.email.message}
+              </p>
             )}
 
             <div className="relative">
@@ -113,7 +137,8 @@ const Login = () => {
                   required: "Le mot de passe est requis",
                   minLength: {
                     value: 6,
-                    message: "Le mot de passe doit contenir au moins 6 caractères",
+                    message:
+                      "Le mot de passe doit contenir au moins 6 caractères",
                   },
                 })}
                 className="w-full pl-12 pr-4 py-3 rounded-lg bg-[#1f1f1f] border-2 border-[#2ECC71]/20 focus:border-[#2ECC71] focus:ring-4 focus:ring-[#2ECC71]/30 text-white placeholder-[#2ECC71]/40 outline-none transition-all duration-300"
@@ -144,9 +169,25 @@ const Login = () => {
             >
               {loading ? (
                 <span className="flex items-center justify-center">
-                  <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  <svg
+                    className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    ></path>
                   </svg>
                   Connexion en cours...
                 </span>
